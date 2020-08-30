@@ -1,2 +1,2 @@
-# -SysAdmin-Scripts-Linux
+# SysAdmin-Scripts-Linux
 Linux Related Scripts for Simplicity
