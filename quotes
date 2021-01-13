@@ -48,3 +48,14 @@ The eyes are useless when the mind is blind.
 Try Again. Fail again. Fail better.
 Impossible is for the unwilling.
 Leave no stone unturned. 
+
+######################################################################
+#Name         :   Quotes
+#Description  :   Just a Motivation(Use By any of below methods)
+#Author       :   Alvin Lazar C
+#Email        :   alvin.la@endurance.com(alvinlaz96@yahoo.com)
+######################################################################
+
+#echo -e "\n\e[1;33m`k=$(((RANDOM%50)));curl -sk https://raw.githubusercontent.com/alvinlaz96/SysAdmin-Scripts-Linux/master/quotes 2>/dev/null |head -$k|tail -1`\e[0m\n"
+
+#echo -e "\n\e[1;33m`k=$(((RANDOM%50)));curl -sk http://hgfix.net/paste/view/raw/92cfa34e 2>/dev/null |head -$k|tail -1`\e[0m\n"
