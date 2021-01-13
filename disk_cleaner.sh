@@ -1,6 +1,6 @@
 #!/bin/bash
 ######################################################################
-#Script Name  :   Disk_Cleaner X
+#Script Name  :   Disk_Cleaner Version 1.0
 #Description  :   Its Main Stream Project To Handle Space Issues
 #Author       :   Alvin Lazar C
 #Email        :   alvin.la@endurance.com(alvinlaz96@yahoo.com)
