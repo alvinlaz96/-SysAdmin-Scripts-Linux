@@ -108,23 +108,47 @@ waiter () {
 
   p=0;
 
-  while kill -0 $pi;  
+  start=$(date +%s.%N);
+  
+  while [[ $(pgrep -f xargs | wc -c) -ne 0 ]];  
   
   do
 
     printf "." sleep 1;
 
-    sleep 2;
+    sleep 3;
 
-    p=$(($p+1));
+    #p=$(($p+1));
 
-    if [ $p -eq 5 ];
+    if [[ $(pgrep -f xargs | wc -c) -eq 0 ]];
 
       then
-
-        echo -e "[OK]";
-        exit 0;unset p,pi;
-
+        
+        stop=$(date +%s.%N);
+        
+        dt=$(echo "$stop - $start" | bc)
+      
+        dd=$(echo "$dt/86400" | bc);
+        
+        dt2=$(echo "$dt-86400*$dd" | bc);
+        
+        dh=$(echo "$dt2/3600" | bc);
+        
+        dt3=$(echo "$dt2-3600*$dh" | bc);
+        
+        dm=$(echo "$dt3/60" | bc);
+        
+        ds=$(echo "$dt3-60*$dm" | bc);
+        
+        
+        
+        echo -e "[OK]\t";
+        
+        echo -ne "Execution time: %02d:%02.4f\n" $dm $ds
+                
+        ((totalduration+=dur))
+        #unset p,pi;
+        
     fi;
 
   done
@@ -137,15 +161,17 @@ if [ "$hn" == NULL ];
 
   then
   
-    echo -e "\nOuch.. You Missed Home_Number. Running Normal Mode "; sleep 2s; 
+    echo -e "\nOuch.. You Missed Home_Number. Running Normal Mode "; sleep 2s; clear;
+   
+    ((ls -A /var/cpanel/users |xargs -n1 -I{}  sudo du -sh  /home/{}/public_html/error_log &>/dev/null) & ) &>/dev/null;
+    
+    pi=`pgrep -f xargs`;
       
-    echo -e "\n\nAll_Homes\tReport`hostname`\t`date +%d-%m-%Y`\n\n Clearing Error Logs\r `ls -A /var/cpanel/users |xargs -n1 -I{}  sudo du -sh  /home/{}/public_html/error_log &> /dev/null;`" &&
+    echo -en "\n\nAll_Homes\tReport `hostname`\t`date +%d-%m-%Y`\n\n\nClearing Error Logs " ;
     
-    pi=`pgrep -f xargs` &&
+    waiter $pi
     
-    waiter $pi;
-    
-    fi; }
+    fi; } #Remove Test Line
 
 elif [ "$dir" == "v" ];
 
