@@ -1,6 +1,6 @@
 #!/bin/bash
 ######################################################################
-#Script Name  :   Progress_Bar
+#Script Name  :   Progress_Bar Version 1.0
 #Description  :   Its cloned work from edouard-lopez
 #Author       :   Édouard Lopez
 #Domain       :   lesspass.com
